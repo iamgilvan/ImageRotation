@@ -1,3 +1,4 @@
+![CI](https://github.com/iamgilvan/ImageRotation/workflows/CI/badge.svg)
 ### RGB Image Rotate
 This project executes rotation on RGBA image considering ImageData objects, besides that supporting ImageData rotation in browsers.
 
@@ -80,6 +81,6 @@ ___
 - [x] Support naive right-wards rotation greater than 90 degrees
 - [x] Support naive left-wards rotation (-ve angle)
 - [x] Refactor naive degree/angle input validation and usage in src/index.ts
-- [ ] Add package to NPM registry
+- [x] Automated [CI build pipeline] (https://github.com/iamgilvan/ImageRotation/actions) (GitHub actions)
+- [ ] Add package to NPM registry or create and deploy an API on heroku
 - [ ] Improve rotation algo implementation (perhaps via array reversal approach)
-- [ ] Automated CI build pipeline (GitHub actions)
