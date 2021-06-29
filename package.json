@@ -1,0 +1,68 @@
+{
+  "name": "ImageRotation",
+  "version": "0.1.0",
+  "description": "rotate a RGBA images",
+  "license": "MIT",
+  "author": {
+    "name": "Gilvan Almeida",
+    "email": "gilvan.praxedes@outlook.com",
+    "url": "http://www.whoisgilvanalmeida.com/"
+  },
+  "keywords": [
+    "images",
+    "rgba",
+    "rotate"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iamgilvan/ImageRotation.git"
+  },
+  "main": "src/index.js",
+  "module": "dist/rgba-img-rotator.esm.js",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build --format umd --name 'rotator'",
+    "test": "tsdx test",
+    "test:watch": "tsdx test --watch",
+    "test:coverage": "tsdx test --coverage",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build"
+  },
+  "peerDependencies": {},
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "jest": {
+    "preset": "jest-puppeteer"
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "devDependencies": {
+    "@types/jest": "^25.2.1",
+    "@types/node": "^13.13.4",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-jest": "^23.8.2",
+    "husky": "^4.2.5",
+    "tsdx": "^0.13.2",
+    "tslib": "^1.11.1",
+    "typescript": "^3.8.3",
+    "@types/expect-puppeteer": "^4.4.1",
+    "@types/jest-environment-puppeteer": "^4.3.1",
+    "jest": "^25.4.0",
+    "jest-puppeteer": "^4.4.0",
+    "puppeteer": "^3.0.2"
+  }
+}
