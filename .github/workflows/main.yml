@@ -1,0 +1,49 @@
+name: CI
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [10.x, 12.x, 13.x]
+
+    steps:
+      - name: Begin CI...
+        uses: actions/checkout@v2
+
+      - name: Use Node ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Use cached node_modules
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: nodeModules-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            nodeModules-
+      - name: Install dependencies
+        # NOTE: this pins the action to a specific commit sha for security
+        # reasons but you can also use a version tag if desired. For example:
+        # ianwalter/puppeteer@3.0.0
+        uses: ianwalter/puppeteer@12728ddef82390d1ecd4732fb543f62177392fbb
+        with:
+          args: yarn install --frozen-lockfile
+        env:
+          CI: true
+
+      - name: Lint
+        uses: ianwalter/puppeteer@12728ddef82390d1ecd4732fb543f62177392fbb
+        with:
+          args: yarn lint
+        env:
+          CI: true
+
+      - name: Test
+        uses: ianwalter/puppeteer@12728ddef82390d1ecd4732fb543f62177392fbb
+        with:
+          args: yarn build && yarn test --coverage
+        env:
+          CI: true
