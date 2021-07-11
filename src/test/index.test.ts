@@ -216,7 +216,7 @@ describe('ImageDataRotator#rotate', () => {
 
         return {
           pixelArray: Array.from(rotatedImage.data),
-          height: rotatedImage.rotatedHeigth,
+          height: rotatedImage.rotatedHeight,
           width: rotatedImage.rotatedWidth,
         };
       },
